@@ -22,3 +22,7 @@
 ## Сервис, скриншоты:
 ![image](https://github.com/user-attachments/assets/9d9c14d7-09fb-4f7e-a405-83551b43a570)
 ![image](https://github.com/user-attachments/assets/341d6e7e-0c7b-4989-98e8-5fc2d9a3dc20)
+![image](https://github.com/user-attachments/assets/7e329e9b-0b43-442a-b85d-f53dd0b9eccf)
+![image](https://github.com/user-attachments/assets/b55f6b43-f287-4519-b533-4481bd8c5c3e)
+
+
