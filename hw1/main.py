@@ -11,7 +11,6 @@ import numpy as np
 
 app = FastAPI()
 # Загрузка модели и OneHotEncoder
-
 with open('model.pkl', 'rb') as f:
     model = load(f)
 with open('ohe2.pkl', 'rb') as f:
@@ -44,8 +43,7 @@ class DataPreprocessing:
         if 'seats' in self.df.columns:
             self.df['seats'] = self.df['seats'].astype(int)
         return self
-
-    # Удаление столбца torque
+        
     def drop_col_torque(self):
         if 'torque' in self.df.columns:
             self.df = self.df.drop(columns=['torque'])
@@ -63,16 +61,12 @@ class DataPreprocessing:
             encoded_data = ohe2.transform(self.df[categorical_features])
             encoded_df = pd.DataFrame(encoded_data, columns=ohe2.get_feature_names_out(categorical_features))
             self.df = scaled_df.join(encoded_df)
-
-        # Удаляем целевой столбец selling_price
+            
         if 'selling_price' in self.df.columns:
             self.df.drop(columns=['selling_price'], inplace=True)
-
-
+            
         self.df = self.df[self.df.columns[5:].tolist() + self.df.columns[:5].tolist()]
-
         return self.df
-
 
 # models
 class Item(BaseModel):
