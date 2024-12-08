@@ -93,16 +93,13 @@ def predict_item(item: Item) -> str:
     data = item.model_dump()
     preprocessor = DataPreprocessing(data)
     preprocessor = preprocessor.data_cleaning().drop_col_torque().preproc()
-
     prediction = model.predict(preprocessor)
-
     return f'prediction price: {float(prediction[0]):.2f}'
 
 @app.post("/predict_items", response_class=StreamingResponse)
 async def predict_items(file: UploadFile = File(...)):
     content = await file.read()
     df_test = pd.read_csv(BytesIO(content))
-
     required_columns = ['mileage', 'engine', 'max_power', 'fuel', 'seller_type', 'transmission', 'owner', 'seats']
     missing_columns = [col for col in required_columns if col not in df_test.columns]
     if missing_columns:
