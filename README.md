@@ -1,2 +1,2 @@
-# Classic_ML_HSE
+# Classic_ML_hw
 Прежде всего домашки
